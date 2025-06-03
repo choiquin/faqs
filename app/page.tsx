@@ -1,32 +1,52 @@
 "use client"
 
 import type React from "react"
+import { useState } from "react"
+import Link from "next/link"
 
-import { Search, Mail, Wifi, Monitor, Users, Phone, MessageCircle, Ticket, ArrowRight } from "lucide-react"
+import {
+  Search,
+  Mail,
+  Wifi,
+  Monitor,
+  Users,
+  Phone,
+  MessageCircle,
+  Ticket,
+  ArrowRight,
+  LogIn,
+} from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { useState } from "react"
-import Link from "next/link"
-
 
 export default function SupportPortal() {
   const [searchQuery, setSearchQuery] = useState("")
 
   const handleSearch = () => {
-  if (searchQuery.trim()) {
-    const siteSearchUrl = "https://sites.google.com/search/mlhuillier.net/bee?query=";
-    const query = encodeURIComponent(searchQuery.trim());
-    const url = `${siteSearchUrl}${query}`;
-    window.open(url, "_blank");
+    if (searchQuery.trim()) {
+      const siteSearchUrl = "/faq"
+      const query = encodeURIComponent(searchQuery.trim())
+      const url = `${siteSearchUrl}${query}`
+      window.open(url, "_blank")
     }
   }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-red-50 to-red-100">
-  {/* Hero Section */}
-  <section className="relative bg-gradient-to-r from-red-700 to-red-800 text-white">
+      {/* Top Nav Bar */}
+      <nav className="bg-white shadow-sm py-4 px-6 flex justify-between items-center border-b">
+        <h1 className="text-lg font-bold text-red-700">ML Support Portal</h1>
+        <Link href="/admin/upload">
+          <Button variant="outline" className="flex gap-2 items-center">
+            <LogIn className="h-4 w-4" />
+          </Button>
+        </Link>
+      </nav>
+
+      {/* Hero Section */}
+      <section className="relative bg-gradient-to-r from-red-700 to-red-800 text-white">
         <div className="absolute inset-0 bg-black/20"></div>
         <div className="relative container mx-auto px-4 py-20 text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6">How can we help you today?</h1>
@@ -87,28 +107,28 @@ export default function SupportPortal() {
       </section>
 
       {/* Announcements */}
-        <section className="bg-gray-50 py-16">
-          <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">Latest Announcements</h2>
-            <Card className="max-w-4xl mx-auto">
-              <CardHeader>
-                <CardTitle>System Updates & News</CardTitle>
-                <CardDescription>Stay informed about the latest Advisories</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="aspect-video bg-gray-100 rounded-lg flex items-center justify-center">
-                  <iframe
-                    src="https://docs.google.com/presentation/d/e/2PACX-1vTjEohCUzWZ_GklytTccEHnMxQQL3z3g2k06sp1tAyQ_S-1-2qGAPZvAr9E0w3eTva7OHfwsmgFa5v9/embed?&autoplay=1&start=true&loop=true"
-                    frameBorder="0"
-                    width="912"
-                    height="565"
-                    allowFullScreen
-                  ></iframe>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        </section>
+      <section className="bg-gray-50 py-16">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">Latest Announcements</h2>
+          <Card className="max-w-4xl mx-auto">
+            <CardHeader>
+              <CardTitle>System Updates & News</CardTitle>
+              <CardDescription>Stay informed about the latest Advisories</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="aspect-video bg-gray-100 rounded-lg flex items-center justify-center">
+                <iframe
+                  src="https://docs.google.com/presentation/d/e/2PACX-1vTjEohCUzWZ_GklytTccEHnMxQQL3z3g2k06sp1tAyQ_S-1-2qGAPZvAr9E0w3eTva7OHfwsmgFa5v9/embed?&autoplay=1&start=true&loop=true"
+                  frameBorder="0"
+                  width="912"
+                  height="565"
+                  allowFullScreen
+                ></iframe>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
 
       {/* Contact Options */}
       <section className="container mx-auto px-4 py-16">
@@ -140,8 +160,6 @@ export default function SupportPortal() {
           />
         </div>
       </section>
-
-      
 
       {/* Chatbot Placeholder */}
       <div id="chatbot-container" className="fixed bottom-4 right-4 z-50">

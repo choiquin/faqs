@@ -1,0 +1,34 @@
+[
+    {
+      "question": "How do I contact support via email?",
+      "answer": "Send your inquiry to support@yourdomain.com with a detailed description of your issue, including any relevant screenshots or error messages. We aim to respond within 24 business hours."
+    },
+    {
+      "question": "What information should I include in my support email?",
+      "answer": "To expedite resolution, please include your account details, a clear description of the problem, steps to reproduce the issue, and any relevant screenshots or error codes."
+    },
+    {
+      "question": "Can I expect a quick response?",
+      "answer": "Our standard response time is within 24 business hours. For urgent issues, please mention “Urgent” in your subject line or contact us via phone/chat if available."
+    },
+    {
+      "question": "What if I don’t receive a reply?",
+      "answer": "Please check your spam/junk folder first. If you haven’t received a response within 48 hours, resend your email or contact us via alternative channels."
+    },
+    {
+      "question": "Can I attach files to my support emails?",
+      "answer": "Yes, attachments such as screenshots, logs, or documents that illustrate your issue help us diagnose and resolve problems faster."
+    },
+    {
+      "question": "Is my personal data safe when emailing support?",
+      "answer": "Absolutely. We adhere to strict data privacy policies and encrypt all email communications to protect your information."
+    },
+    {
+      "question": "Can I request a status update on my support ticket?",
+      "answer": "Yes, simply reply to the original support email with your request or ticket number."
+    },
+    {
+      "question": "What if my issue is resolved before I get a reply?",
+      "answer": "You can notify us by replying to your ticket email, which helps us keep our system up to date and focus on active cases."
+    }
+  ]

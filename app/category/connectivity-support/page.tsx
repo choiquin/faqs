@@ -1,68 +1,37 @@
-export default function ConnectivityFAQ() {
-  const faqs = [
-     {
-    question: "Why can’t I connect to the internet?",
-    answer:
-      "Check if your device is connected to Wi-Fi or LAN. Restart your router and device. If the problem persists, contact your network administrator or ISP.",
-  },
-  {
-    question: "My Wi-Fi is connected but I have no internet. What should I do?",
-    answer:
-      "This usually means a problem with the router or ISP. Restart your router. If others are affected too, contact your service provider.",
-  },
-  {
-    question: "How do I connect to the office VPN?",
-    answer:
-      "Use the approved VPN client (e.g., Cisco AnyConnect or OpenVPN). Enter your credentials and server address provided by IT. Ensure your internet is working before attempting.",
-  },
-  {
-    question: "The network is very slow. How can I troubleshoot?",
-    answer:
-      "Run a speed test. Check if too many devices are connected. Close background apps using bandwidth. Reboot your router or contact IT if the issue is persistent.",
-  },
-  {
-    question: "How do I know if the issue is with my device or the network?",
-    answer:
-      "Try connecting another device to the same network. If that works, the issue is with your device. If not, the problem is likely with the network or router.",
-  },
-  {
-    question: "Ethernet not working but Wi-Fi is. What can I check?",
-    answer:
-      "Ensure the Ethernet cable is properly plugged in. Try a different cable or port. Make sure the network adapter is enabled in Device Manager (Windows) or Network Settings (macOS).",
-  },
-  {
-    question: "How do I reset my network settings?",
-    answer:
-      "On Windows: Settings > Network & Internet > Advanced network settings > Network reset. On macOS: System Settings > Network > Remove and re-add the interface.",
-  },
-  {
-    question: "What does 'Limited Connectivity' mean?",
-    answer:
-      "It means your device is connected to the network but cannot access the internet. Try rebooting the router, renewing the IP address, or checking your DNS settings.",
-  },
-  {
-    question: "Can’t access internal systems while on home internet?",
-    answer:
-      "You may need to connect to the corporate VPN to access internal tools or resources. Check VPN credentials and ensure your firewall isn’t blocking the connection.",
-  },
-  {
-    question: "How can I prioritize work devices on my home network?",
-    answer:
-      "Access your router's QoS (Quality of Service) settings and prioritize your device's MAC address or IP. This ensures higher bandwidth for work-related tasks.",
-  },
-];
+import { promises as fs } from 'fs';
+import path from 'path';
+
+interface FAQItem {
+  question: string;
+  answer: string;
+}
+
+export default async function ConnectivityFAQ() {
+  let faqs: FAQItem[] = [];
+
+  try {
+    const filePath = path.join(process.cwd(), 'data', 'connectivity', 'faqs.json');
+    const file = await fs.readFile(filePath, 'utf-8');
+    faqs = JSON.parse(file);
+  } catch (err) {
+    console.warn("Failed to load Connectivity FAQs", err);
+  }
 
   return (
     <div className="max-w-3xl mx-auto px-4 py-10">
       <h1 className="text-3xl font-bold mb-6 text-red-700">Connectivity FAQs</h1>
-      <div className="space-y-6">
-        {faqs.map((faq, idx) => (
-          <div key={idx} className="border-b pb-4">
-            <h2 className="text-lg font-semibold text-gray-900">{faq.question}</h2>
-            <p className="text-gray-700 mt-2">{faq.answer}</p>
-          </div>
-        ))}
-      </div>
+      {faqs.length === 0 ? (
+        <p className="text-gray-600">No FAQs found for Connectivity.</p>
+      ) : (
+        <div className="space-y-6">
+          {faqs.map((faq, idx) => (
+            <div key={idx} className="border-b pb-4">
+              <h2 className="text-lg font-semibold text-gray-900">{faq.question}</h2>
+              <p className="text-gray-700 mt-2">{faq.answer}</p>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
-  )
+  );
 }
