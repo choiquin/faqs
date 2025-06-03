@@ -8,25 +8,29 @@ import { Input } from "@/components/ui/input"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { useState } from "react"
+import Link from "next/link"
+
 
 export default function SupportPortal() {
   const [searchQuery, setSearchQuery] = useState("")
 
   const handleSearch = () => {
-    if (searchQuery.trim()) {
-      // Replace with your actual search URL
-      window.open(`https://your-search-url.com?q=${encodeURIComponent(searchQuery)}`, "_blank")
+  if (searchQuery.trim()) {
+    const siteSearchUrl = "https://sites.google.com/search/mlhuillier.net/bee?query=";
+    const query = encodeURIComponent(searchQuery.trim());
+    const url = `${siteSearchUrl}${query}`;
+    window.open(url, "_blank");
     }
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-blue-600 to-indigo-700 text-white">
+    <div className="min-h-screen bg-gradient-to-br from-red-50 to-red-100">
+  {/* Hero Section */}
+  <section className="relative bg-gradient-to-r from-red-700 to-red-800 text-white">
         <div className="absolute inset-0 bg-black/20"></div>
         <div className="relative container mx-auto px-4 py-20 text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6">How can we help you today?</h1>
-          <p className="text-xl md:text-2xl mb-8 text-blue-100">Find answers, get support, and connect with our team</p>
+          <p className="text-xl md:text-2xl mb-8 text-red-100">Find answers, get support, and connect with our team</p>
 
           {/* Search Bar */}
           <div className="max-w-2xl mx-auto">
@@ -55,68 +59,56 @@ export default function SupportPortal() {
             icon={<Mail className="h-8 w-8" />}
             title="Email Support"
             description="Gmail setup, password reset, and email troubleshooting"
-            href="#"
+            href="/category/email-support"
             color="bg-green-500"
           />
           <CategoryCard
             icon={<Wifi className="h-8 w-8" />}
             title="Connectivity"
             description="Internet connection issues and network troubleshooting"
-            href="#"
+            href="/category/connectivity-support"
             color="bg-blue-500"
           />
           <CategoryCard
             icon={<Monitor className="h-8 w-8" />}
             title="Hardware & Peripherals"
             description="Computer hardware, printers, and device setup"
-            href="#"
+            href="/category/devices-support"
             color="bg-purple-500"
           />
           <CategoryCard
             icon={<Users className="h-8 w-8" />}
             title="Services"
             description="MLhuillier services, accounts, and general inquiries"
-            href="#"
+            href="/category/services-support"
             color="bg-orange-500"
           />
         </div>
       </section>
 
-      {/* Popular Topics */}
-      <section className="bg-white py-16">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">Popular Topics</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <TopicCard
-              title="Can't Connect to Shared Printer"
-              description="Step-by-step guide to resolve printer connection issues"
-              badge="Most Popular"
-              href="#"
-            />
-            <TopicCard
-              title="How to Create a Support Ticket"
-              description="Learn how to submit and track your support requests"
-              href="#"
-            />
-            <TopicCard
-              title="Internet Connection Troubleshooting"
-              description="Fix common connectivity problems quickly"
-              href="#"
-            />
-            <TopicCard title="Gmail Password Reset Guide" description="Recover access to your email account" href="#" />
-            <TopicCard
-              title="MLhuillier Services Overview"
-              description="Explore all available services and features"
-              href="#"
-            />
-            <TopicCard
-              title="HRIS Account Activation"
-              description="Activate and manage your HR information system account"
-              href="#"
-            />
+      {/* Announcements */}
+        <section className="bg-gray-50 py-16">
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">Latest Announcements</h2>
+            <Card className="max-w-4xl mx-auto">
+              <CardHeader>
+                <CardTitle>System Updates & News</CardTitle>
+                <CardDescription>Stay informed about the latest Advisories</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="aspect-video bg-gray-100 rounded-lg flex items-center justify-center">
+                  <iframe
+                    src="https://docs.google.com/presentation/d/e/2PACX-1vTjEohCUzWZ_GklytTccEHnMxQQL3z3g2k06sp1tAyQ_S-1-2qGAPZvAr9E0w3eTva7OHfwsmgFa5v9/embed?&autoplay=1&start=true&loop=true"
+                    frameBorder="0"
+                    width="912"
+                    height="565"
+                    allowFullScreen
+                  ></iframe>
+                </div>
+              </CardContent>
+            </Card>
           </div>
-        </div>
-      </section>
+        </section>
 
       {/* Contact Options */}
       <section className="container mx-auto px-4 py-16">
@@ -149,27 +141,7 @@ export default function SupportPortal() {
         </div>
       </section>
 
-      {/* Announcements */}
-      <section className="bg-gray-50 py-16">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">Latest Announcements</h2>
-          <Card className="max-w-4xl mx-auto">
-            <CardHeader>
-              <CardTitle>System Updates & News</CardTitle>
-              <CardDescription>Stay informed about the latest changes and improvements</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="aspect-video bg-gray-100 rounded-lg flex items-center justify-center">
-                <p className="text-gray-500">
-                  Announcements content will be displayed here
-                  <br />
-                  (Replace with your actual announcements or embed)
-                </p>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-      </section>
+      
 
       {/* Chatbot Placeholder */}
       <div id="chatbot-container" className="fixed bottom-4 right-4 z-50">
@@ -193,20 +165,22 @@ function CategoryCard({
   color: string
 }) {
   return (
-    <Card className="group hover:shadow-lg transition-all duration-300 cursor-pointer border-0 shadow-md">
-      <CardContent className="p-6 text-center">
-        <div
-          className={`${color} text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform`}
-        >
-          {icon}
-        </div>
-        <h3 className="text-xl font-semibold mb-2 text-gray-800">{title}</h3>
-        <p className="text-gray-600 text-sm leading-relaxed">{description}</p>
-        <Button variant="ghost" className="mt-4 group-hover:text-blue-600">
-          Learn More <ArrowRight className="ml-2 h-4 w-4" />
-        </Button>
-      </CardContent>
-    </Card>
+    <Link href={href} passHref>
+      <Card className="group hover:shadow-lg transition-all duration-300 cursor-pointer border-0 shadow-md">
+        <CardContent className="p-6 text-center">
+          <div
+            className={`${color} text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform`}
+          >
+            {icon}
+          </div>
+          <h3 className="text-xl font-semibold mb-2 text-gray-800">{title}</h3>
+          <p className="text-gray-600 text-sm leading-relaxed">{description}</p>
+          <span className="inline-flex items-center justify-center mt-4 text-blue-600 group-hover:text-blue-700 font-medium">
+            Learn More <ArrowRight className="ml-2 h-4 w-4" />
+          </span>
+        </CardContent>
+      </Card>
+    </Link>
   )
 }
 

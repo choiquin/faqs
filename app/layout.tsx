@@ -3,7 +3,7 @@ import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
-import { Chatbot } from "@/components/chatbot"
+// import { Chatbot } from "@/components/chatbot"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -20,10 +20,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <script src="//code.tidio.co/u66hw5ihvwd6enmceu23mforedpxpuw5.js" async></script>
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
           {children}
-          <Chatbot />
+          {/* <Chatbot /> */}
         </ThemeProvider>
       </body>
     </html>
