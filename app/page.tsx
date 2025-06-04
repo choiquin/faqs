@@ -118,13 +118,14 @@ export default function SupportPortal() {
             </CardHeader>
             <CardContent>
               <div className="aspect-video bg-gray-100 rounded-lg flex items-center justify-center">
-                <iframe
+               {/* <iframe
                   src="https://docs.google.com/presentation/d/e/2PACX-1vTjEohCUzWZ_GklytTccEHnMxQQL3z3g2k06sp1tAyQ_S-1-2qGAPZvAr9E0w3eTva7OHfwsmgFa5v9/embed?&autoplay=1&start=true&loop=true"
                   frameBorder="0"
                   width="912"
                   height="565"
                   allowFullScreen
                 ></iframe>
+            */}
               </div>
             </CardContent>
           </Card>
