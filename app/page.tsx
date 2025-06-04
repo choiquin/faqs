@@ -35,7 +35,7 @@ export default function SupportPortal() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-red-50 to-red-100">
-      {/* Top Nav Bar */}
+      {/* Top Nav Bar *
       <nav className="bg-white shadow-sm py-4 px-6 flex justify-between items-center border-b">
         <h1 className="text-lg font-bold text-red-700">ML Support Portal</h1>
         <Link href="/admin/upload">
@@ -44,6 +44,7 @@ export default function SupportPortal() {
           </Button>
         </Link>
       </nav>
+      /}
 
       {/* Hero Section */}
       <section className="relative bg-gradient-to-r from-red-700 to-red-800 text-white">
