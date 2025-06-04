@@ -1,5 +1,21 @@
 import { notFound } from "next/navigation"
 import faqs from "@/data/email-support/faqs.json"
+import faqs from "@/data/connectivity/faqs.json"
+import faqs from "@/data/services-support/ml-shop/faqs.json"
+import faqs from "@/data/services-support/billspayment/faqs.json"
+import faqs from "@/data/services-support/insurance/faqs.json"
+import faqs from "@/data/services-support/eload-gaming/faqs.json"
+import faqs from "@/data/services-support/car-loan/faqs.json"
+import faqs from "@/data/services-support/home-loan/faqs.json"
+import faqs from "@/data/services-support/salary-loan/faqs.json"
+import faqs from "@/data/services-support/ml-shop/faqs.json"
+import faqs from "@/data/services-support/prenda-renewal/faqs.json"
+import faqs from "@/data/services-support/personal-property/faqs.json"
+import faqs from "@/data/services-support/business-pro/faqs.json"
+import faqs from "@/data/services-support/business-loan/faqs.json"
+
+
+
 
 export default function SearchPage({ searchParams }: { searchParams: { q?: string } }) {
   const query = searchParams.q?.toLowerCase() || ""
