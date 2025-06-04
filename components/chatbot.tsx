@@ -269,7 +269,7 @@ export function Chatbot() {
                   {!message.isUser && (
                     <div className="w-8 h-8 rounded-full bg-white mr-2 flex-shrink-0 flex items-center justify-center">
                       <Image
-                        src="/images/wilbee-avatar.png"
+                        src="/#"
                         alt="WilBee"
                         width={32}
                         height={32}
