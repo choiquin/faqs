@@ -161,11 +161,6 @@ export default function SupportPortal() {
           />
         </div>
       </section>
-
-      {/* Chatbot Placeholder */}
-      <div id="chatbot-container" className="fixed bottom-4 right-4 z-50">
-        {/* The chatbot component will be mounted here */}
-      </div>
     </div>
   )
 }
