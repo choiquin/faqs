@@ -25,13 +25,13 @@ export default function SupportPortal() {
   const [searchQuery, setSearchQuery] = useState("")
 
   const handleSearch = () => {
-    if (searchQuery.trim()) {
-      const siteSearchUrl = "/faq"
-      const query = encodeURIComponent(searchQuery.trim())
-      const url = `${siteSearchUrl}${query}`
-      window.open(url, "_blank")
-    }
+  if (searchQuery.trim()) {
+    const siteSearchUrl = "https://tiji-faqs.vercel.app/search?q=";
+    const query = encodeURIComponent(searchQuery.trim());
+    const url = `${siteSearchUrl}${query}`;
+    window.open(url, "_blank");
   }
+}
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-red-50 to-red-100">
