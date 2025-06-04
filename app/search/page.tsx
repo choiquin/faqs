@@ -1,20 +1,25 @@
 import { notFound } from "next/navigation"
-import faqs from "@/data/email-support/faqs.json"
-import faqs from "@/data/connectivity/faqs.json"
-import faqs from "@/data/services-support/ml-shop/faqs.json"
-import faqs from "@/data/services-support/billspayment/faqs.json"
-
-
+import emailFaqs from "@/data/email-support/faqs.json"
+import connectivityFaqs from "@/data/connectivity/faqs.json"
+import mlShopFaqs from "@/data/services-support/ml-shop/faqs.json"
+import billspaymentFaqs from "@/data/services-support/billspayment/faqs.json"
 
 export default function SearchPage({ searchParams }: { searchParams: { q?: string } }) {
   const query = searchParams.q?.toLowerCase() || ""
+
+  const faqs = [
+    ...emailFaqs,
+    ...connectivityFaqs,
+    ...mlShopFaqs,
+    ...billspaymentFaqs,
+  ]
+
+  if (!query) return notFound()
 
   const results = faqs.filter((faq) =>
     faq.question.toLowerCase().includes(query) ||
     faq.answer.toLowerCase().includes(query)
   )
-
-  if (!query) return notFound()
 
   return (
     <div className="p-6">
