@@ -6,11 +6,12 @@ interface FAQItem {
   answer: string;
 }
 
+
 export default async function ConnectivityFAQ() {
   let faqs: FAQItem[] = [];
 
   try {
-    const filePath = path.join(process.cwd(), 'data', 'connectivity', 'faqs.json');
+    const filePath = path.join(process.cwd(), 'data', 'connectivity-support', 'faqs.json');
     const file = await fs.readFile(filePath, 'utf-8');
     faqs = JSON.parse(file);
   } catch (err) {
